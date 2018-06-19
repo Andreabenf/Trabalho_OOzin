@@ -1,8 +1,5 @@
 package Running;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JOptionPane;
 
 import Background.Pessoa;
@@ -48,7 +45,7 @@ public class App {
 			break;
 			
 			case "total":
-				JOptionPane.showConfirmDialog(null, rep.getTotalRendaMoradores());
+				JOptionPane.showConfirmDialog(null, rep.getTotal());
 			break;
 			
 			case "Calcular Divisão":
@@ -125,28 +122,23 @@ public class App {
 		"Proporcional"};
 		int escolhida = JOptionPane.showOptionDialog(null, "Qual tipo de media?", "Opcoes de média", JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE, null, ops,ops[0] );
 		double tot = 0 ;
-	
-		for(int i = 0; i<rep.getNumCategorias();i++ ) {
-			tot+=rep.desp.get(i).getTotalDespesas();
-			System.out.println("estou adicionando "+ rep.desp.get(i).getTotalDespesas()+"\n");	
-		}
-		
 		if(escolhida == 0){
 			
-			double Valor = (tot/rep.getNumPessoas());
-			for(int i = 0; i<rep.getNumPessoas();i++ ) {
-				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + Valor + "\n");
+			for(int i = 0; i<rep.getNumCategorias();i++ ) {
+				tot+=rep.desp.get(i).getTotalDespesas();
+				System.out.println("estou adicionando "+ rep.desp.get(i).getTotalDespesas()+"\n");
+				
 			}
-			  
+			
+			
+			double media = (tot/2);
+			for(int i = 0; i<rep.getNumPessoas();i++ ) {
+				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + media + "\n");
+			}
+			
+			System.out.println("o total ate agr ta sendo: " +"\n");
 		}
 		else {
-			
-			for(int i = 0; i<rep.getNumPessoas();i++ ) {
-				double Valor;
-				Valor = ((rep.pessoa.get(i).getRendimentoMensal()/rep.getTotalRendaMoradores()) * tot); 
-				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + Valor  + "Reais\n");
-			}
-			
 			
 		}
 		JOptionPane.showMessageDialog(null, mensagem);

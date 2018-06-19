@@ -143,8 +143,8 @@ public class App {
 			
 			for(int i = 0; i<rep.getNumPessoas();i++ ) {
 				double Valor;
-				Valor = ((rep.pessoa.get(i).getRendimentoMensal()/rep.getTotalRendaMoradores()) * tot); 
-				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + Valor  + "Reais\n");
+				Valor = ((rep.getTotalRendaMoradores()/rep.pessoa.get(i).getRendimentoMensal()) * tot); 
+				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + Valor  + "\n");
 			}
 			
 			
