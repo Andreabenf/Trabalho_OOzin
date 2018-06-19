@@ -9,8 +9,8 @@ public class Despesa {
 	
 	
 	public double getTotalDespesas() {
-		double totalDespesas = 0;
-		for(int i=0; i<subs.size(); i++ ) {
+		double totalDespesas =0;
+		for(int i=0;i<subs.size();i++ ) {
 			totalDespesas+=subs.get(i).getVlaor();
 		}
 		return totalDespesas;

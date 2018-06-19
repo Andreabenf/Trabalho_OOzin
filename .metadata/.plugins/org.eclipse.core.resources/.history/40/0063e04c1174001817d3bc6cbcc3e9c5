@@ -136,7 +136,7 @@ public class App {
 				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + media + "\n");
 			}
 			
-			System.out.println("o total ate agr ta sendo: " +"\n");
+			System.out.println("o total ate agr ta sendo: "+tot +"\n");
 		}
 		else {
 			
