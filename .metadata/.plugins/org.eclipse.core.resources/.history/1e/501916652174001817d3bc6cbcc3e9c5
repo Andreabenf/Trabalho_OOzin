@@ -20,6 +20,7 @@ public class App {
 				                    "Cadastrar Uma nova Categoria", 
 				                    "Cadastrar Despesas",
 				                    "Calcular Divisão",
+				                    "total", 
 				                    "Sair"};
 		Object opcaoDefault = opcoesPossiveis[0];
 		Object opcaoSelecionada = null;

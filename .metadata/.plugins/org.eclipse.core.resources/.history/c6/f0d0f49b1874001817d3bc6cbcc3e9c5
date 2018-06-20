@@ -1,5 +1,7 @@
 package Running;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -20,6 +22,7 @@ public class App {
 				                    "Cadastrar Uma nova Categoria", 
 				                    "Cadastrar Despesas",
 				                    "Calcular Divisão",
+				                    "total", 
 				                    "Sair"};
 		Object opcaoDefault = opcoesPossiveis[0];
 		Object opcaoSelecionada = null;
@@ -125,12 +128,12 @@ public class App {
 	
 		for(int i = 0; i<rep.getNumCategorias();i++ ) {
 			tot+=rep.desp.get(i).getTotalDespesas();
+			System.out.println("estou adicionando "+ rep.desp.get(i).getTotalDespesas()+"\n");	
 		}
 		
 		if(escolhida == 0){
-		
+			
 			double Valor = (tot/rep.getNumPessoas());
-		
 			for(int i = 0; i<rep.getNumPessoas();i++ ) {
 				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + Valor + "\n");
 			}
@@ -143,6 +146,8 @@ public class App {
 				Valor = ((rep.pessoa.get(i).getRendimentoMensal()/rep.getTotalRendaMoradores()) * tot); 
 				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + Valor  + "Reais\n");
 			}
+			
+			
 		}
 		JOptionPane.showMessageDialog(null, mensagem);
 		return true;

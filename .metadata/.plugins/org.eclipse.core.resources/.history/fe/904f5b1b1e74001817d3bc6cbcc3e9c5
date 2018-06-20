@@ -1,5 +1,7 @@
 package Running;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -20,6 +22,7 @@ public class App {
 				                    "Cadastrar Uma nova Categoria", 
 				                    "Cadastrar Despesas",
 				                    "Calcular Divisão",
+				                    "total", 
 				                    "Sair"};
 		Object opcaoDefault = opcoesPossiveis[0];
 		Object opcaoSelecionada = null;
