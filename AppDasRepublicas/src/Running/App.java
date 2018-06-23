@@ -26,7 +26,7 @@ public class App {
 		do {
 			opcaoSelecionada = JOptionPane.showInputDialog(null, 
 											"Selecione uma das opcoes a seguir:", 
-											"App das Republicas", 
+											"App das Republicas Top", 
 											JOptionPane.QUESTION_MESSAGE, 
 											null, 
 											opcoesPossiveis, 
