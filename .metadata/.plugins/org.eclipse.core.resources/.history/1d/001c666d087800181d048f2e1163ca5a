@@ -1,10 +1,13 @@
 package Running;
 
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 import javax.swing.JOptionPane;
+
 import Background.Pessoa;
 import Background.Republica;
 import Background.SubRendimento;
@@ -58,6 +61,8 @@ public class App {
 			case "Calcular Divisão":
 				calcularDivisao();
 			break;
+			
+
 			default:
 				break;
 			}
@@ -83,6 +88,8 @@ public class App {
 		}
 		do {
 			String[] campos = line.split(";");
+			int anoFab = Integer.parseInt(campos[2]);
+			int anoMod = Integer.parseInt(campos[3]);
 			double renda = Double.parseDouble(campos[2]);
 			Pessoa morador = new Pessoa(campos[0],campos[1],renda);
 			resposta = rep.addPessoa(morador);
@@ -180,7 +187,7 @@ public class App {
 			for(int i = 0; i<rep.getNumPessoas();i++ ) {
 				double Valor;
 				Valor = ((rep.pessoa.get(i).getRendimentoMensal()/rep.getTotalRendaMoradores()) * tot); 
-				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + Valor  + " Reais\n");
+				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + Valor  + "Reais\n");
 			}
 		}
 		JOptionPane.showMessageDialog(null, mensagem);
