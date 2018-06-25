@@ -7,7 +7,7 @@ import java.util.List;
 
 
 public class Republica {
-	public List<Categoria> desp = new ArrayList<Categoria>();
+	public List<Despesa> desp = new ArrayList<Despesa>();
 	public List<Pessoa> pessoa = new ArrayList<Pessoa>();
 	static double totalRendaMoradores = 0;
 	
@@ -26,7 +26,7 @@ public class Republica {
 	}
 	
 	public boolean addCategoria(String nome) {
-		Categoria top = new Categoria();
+		Despesa top = new Despesa();
 		top.setNome(nome);
 		desp.add(top);
 		return true;

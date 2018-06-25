@@ -1,11 +1,11 @@
 package Background;
 
 
-public class Despesa {
+public class SubRendimento {
 	private String descricao;
 	private double valor;
 	
-		public Despesa(String d, double v) {
+		public SubRendimento(String d, double v) {
 			this.descricao = d;
 			this.valor = v;
 		}
@@ -16,11 +16,12 @@ public class Despesa {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	public double getValor() {
+	public double getVlaor() {
 		return valor;
 	}
-	
+	public void setVlaor(double vlaor) {
+		this.valor = vlaor;
+	}
 	
 }
 

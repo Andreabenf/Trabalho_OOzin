@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import Background.Pessoa;
 import Background.Republica;
-import Background.Despesa;
+import Background.SubRendimento;
 
 public class App {
 	
@@ -20,7 +20,6 @@ public class App {
 		Object[] opcoesPossiveis = {"--- Selecione uma opcao ---",
 									"Cadastrar Morador", 
 				                    "Cadastrar Uma nova Categoria", 
-				                    "Cadastrar Sub Categoria",
 				                    "Cadastrar Despesas",
 				                    "Calcular Divisão",
 				                    "Carregar lista de moradores",
@@ -48,10 +47,6 @@ public class App {
 				cadastrarDespesas();
 			break;
 			
-			case "Cadastrar Sub Categoria":
-				
-			break;
-			
 			case "total":
 				JOptionPane.showConfirmDialog(null, rep.getTotalRendaMoradores());
 			break;
@@ -70,9 +65,6 @@ public class App {
 	}
 
 	
-	
-
-
 	private static boolean gravarDoTxt() {
 		FileReader arquivo = null;
 		BufferedReader buffer;
@@ -92,6 +84,8 @@ public class App {
 		}
 		do {
 			String[] campos = line.split(";");
+			if (campos[0]==null) {
+					System.out.println("deu ruim");}
 			double renda = Double.parseDouble(campos[2]);
 			Pessoa morador = new Pessoa(campos[0],campos[1],renda);
 			resposta = rep.addPessoa(morador);
@@ -131,34 +125,16 @@ public class App {
 				                                     nomesCategoria, 
 				                                     null);
 		
-		int indexCategoria = pesquisarCategoria(nomeCategoriaSelecionada);
-		
-		
-		
-		String[] nomesSubCategoria = new String[rep.desp.get(indexCategoria).getSubSize()];
-		for (int i=0; i<rep.desp.get(indexCategoria).getSubSize(); i++) {
-			nomesSubCategoria[i] = rep.desp.get(indexCategoria).subs.get(i).getNomeSubCategoria();
-		}
-		
-		String nomeSubCategoriaSelecionada = (String)JOptionPane.showInputDialog(null, 
-				                                     "Escolha Categoria da Despesa", 
-				                                     "Menu de Categorias", 
-        				                             JOptionPane.INFORMATION_MESSAGE, 
-		        		                             null, 
-				                                     nomesCategoria, 
-				                                     null);
-		
-		int indexSubCategoria = pesquisarSubCategoria(nomeSubCategoriaSelecionada,indexCategoria );
-		
-		String descricaoDespesa = JOptionPane.showInputDialog("Informe a descricao do gasto (Categoria " +  rep.desp.get(indexCategoria).getNomeCategoria() + ")");
-		Double valorDespesa =Double.parseDouble( JOptionPane.showInputDialog("Informe o valor do gasto (Categoria " +  rep.desp.get(indexCategoria).getNomeCategoria() + ")"));
-		Despesa oi = new Despesa(descricaoDespesa,valorDespesa);
-		rep.desp.get(indexCategoria).subs.get(indexSubCategoria).addDisp(oi);
+		int indexCategoria = pesquisarContribuinte(nomeCategoriaSelecionada);
+		String descricaoSubRendiemnto = JOptionPane.showInputDialog("Informe a descricao do gasto (Categoria " +  rep.desp.get(indexCategoria).getNomeCategoria() + ")");
+		Double valorSubRendimento =Double.parseDouble( JOptionPane.showInputDialog("Informe o valor do gasto (Categoria " +  rep.desp.get(indexCategoria).getNomeCategoria() + ")"));
+		SubRendimento oi = new SubRendimento(descricaoSubRendiemnto, valorSubRendimento);
+		rep.desp.get(indexCategoria).AddSub(oi);
 	}
 
 
 
-	private static int pesquisarCategoria(String nomedCategoria) {
+	private static int pesquisarContribuinte(String nomedCategoria) {
 		int resp = 0;
 		for (int i=0; i<rep.desp.size(); i++) {
 			if( rep.desp.get(i).getNomeCategoria().equals(nomedCategoria)) {
@@ -168,18 +144,6 @@ public class App {
 		}
 		return resp;
 	}
-	
-	private static int pesquisarSubCategoria(String nomedaSubCategoria, int indexCat) {
-		int resp = 0;
-		for (int i=0; i<rep.desp.get(indexCat).getSubSize(); i++) {
-			if( rep.desp.get(indexCat).subs.get(i).getNomeSubCategoria().equals(nomedaSubCategoria)) {
-				 resp = i;
-				
-			}
-		}
-		return resp;
-	}
-
 
 
 	private  static boolean cadastrarMorador() {
