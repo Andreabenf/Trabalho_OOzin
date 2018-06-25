@@ -29,20 +29,10 @@ public class Republica {
 		Categoria top = new Categoria();
 		top.setNome(nome);
 		desp.add(top);
-		return true;	
-	}
-	public boolean addSubCategoria(String nome,int indexCat){
-		SubCategoria top = new SubCategoria();
-		top.setNomeSubCategoria(nome);
-		desp.get(indexCat).AddSub(top);
-		
-		
 		return true;
 		
 		
 	}
-	
-	
 	public boolean addPessoa(Pessoa n) {
 		totalRendaMoradores+= n.getRendimentoMensal();
 		pessoa.add(n);

@@ -6,7 +6,6 @@ import java.util.List;
 public class SubCategoria {
 	String nomeSubCategoria;
 	public List<Despesa> desps = new ArrayList<Despesa>();
-	public static double totalNaSub = 0;
 	
 	public String getNomeSubCategoria() {
 		return nomeSubCategoria;
@@ -16,7 +15,7 @@ public class SubCategoria {
 		this.nomeSubCategoria = nomeSubCategoria;
 	}
 
-	
+	public static double totalNaSub = 0;
 	
 	
 	

@@ -23,7 +23,6 @@ public class App {
 				                    "Cadastrar Sub Categoria",
 				                    "Cadastrar Despesas",
 				                    "Calcular Divisão",
-				                    "toal",
 				                    "Carregar lista de moradores",
 				                    "Sair"};
 		Object opcaoDefault = opcoesPossiveis[0];
@@ -247,7 +246,7 @@ public class App {
 				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + Valor  + " Reais\n");
 			}
 		}
-		JOptionPane.showMessageDialog(null, tot);
+		JOptionPane.showMessageDialog(null, mensagem);
 		return true;
 	}
 
