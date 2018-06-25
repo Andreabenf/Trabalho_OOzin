@@ -69,9 +69,8 @@ public class App {
 		FileReader arquivo = null;
 		BufferedReader buffer;
 		boolean resposta; 
-		String nomeArquivo = "moradores.txt";
 		try {
-			arquivo = new FileReader(nomeArquivo);
+			arquivo = new FileReader("moradores.txt");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -94,8 +93,6 @@ public class App {
 				e.printStackTrace();
 			}	
 		} while (line != null);
-		
-		JOptionPane.showMessageDialog(null, "Moradores do Arquvio \"" + nomeArquivo + "\" Cadastrados com Sucesso!");
 		return resposta;
 	}
 	

@@ -95,7 +95,7 @@ public class App {
 			}	
 		} while (line != null);
 		
-		JOptionPane.showMessageDialog(null, "Moradores do Arquvio \"" + nomeArquivo + "\" Cadastrados com Sucesso!");
+		JOptionPane.showMessageDialog(null, "Contatos do Arquvio " + nomeArquivo + " Cadastrados com Sucesso!");
 		return resposta;
 	}
 	
