@@ -84,8 +84,6 @@ public class App {
 		}
 		do {
 			String[] campos = line.split(";");
-			if (campos[0]==null) {
-					System.out.println("deu ruim");}
 			double renda = Double.parseDouble(campos[2]);
 			Pessoa morador = new Pessoa(campos[0],campos[1],renda);
 			resposta = rep.addPessoa(morador);
