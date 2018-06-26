@@ -47,7 +47,6 @@ public class App {
 				
 			case "Cadastrar Despesas":
 				cadastrarDespesas();
-				
 			break;
 			
 			case "Cadastrar Sub Categoria":
@@ -55,7 +54,6 @@ public class App {
 			break;
 			
 			case "total":
-				rep.getLista();
 				
 			break;
 			
@@ -211,11 +209,14 @@ public class App {
 	private  static boolean cadastrarMorador() {
 	
 		
-		String nomeMorador =(String) JOptionPane.showInputDialog(null, "Select the Port number for server creation", "Server Connection\n", JOptionPane.OK_CANCEL_OPTION, null, null, null);
+		String nomeMorador = JOptionPane.showInputDialog("Informe o nome do morador:");
 		String emailMorador = JOptionPane.showInputDialog("Informe o e-mail do morador:");
 		Double rendMorador =Double.parseDouble( JOptionPane.showInputDialog("Informe a renda do morador:"));
 		Pessoa morador = new Pessoa(nomeMorador,emailMorador,rendMorador);
 		rep.addPessoa(morador);
+		if(nomeMorador == "" ||nomeMorador == " " ||nomeMorador == null ) {
+			System.out.println("fodnão");
+		}
 		return true;
 		
 		

@@ -216,6 +216,9 @@ public class App {
 		Double rendMorador =Double.parseDouble( JOptionPane.showInputDialog("Informe a renda do morador:"));
 		Pessoa morador = new Pessoa(nomeMorador,emailMorador,rendMorador);
 		rep.addPessoa(morador);
+		if(nomeMorador == "a" ||nomeMorador == " " ||nomeMorador == null ) {
+			System.out.println("fodnão");
+		}
 		return true;
 		
 		

@@ -42,14 +42,11 @@ public class Republica {
 		SubCategoria top = new SubCategoria();
 		top.setNomeSubCategoria(nome);
 		desp.get(indexCat).AddSub(top);
+		
+		
 		return true;
-	}
-	
-	public boolean getLista() {
-		for(int i=0;i<pessoa.size();i++) {
-		System.out.println(pessoa.get(i).getNome()+"\n"+pessoa.get(i).getEmail()+"\n"+pessoa.get(i).getRendimentoMensal());
-		}
-		return true;
+		
+		
 	}
 	
 	

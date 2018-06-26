@@ -45,11 +45,10 @@ public class Republica {
 		return true;
 	}
 	
-	public boolean getLista() {
+	public void getLista() {
 		for(int i=0;i<pessoa.size();i++) {
-		System.out.println(pessoa.get(i).getNome()+"\n"+pessoa.get(i).getEmail()+"\n"+pessoa.get(i).getRendimentoMensal());
+		System.out.println(pessoa.get(i).getNome()+"\n"+pessoa.get(i).getEmail()+"\n"+pessoa.get(i).getRendimentoMensal();
 		}
-		return true;
 	}
 	
 	
