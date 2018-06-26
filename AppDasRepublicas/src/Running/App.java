@@ -23,7 +23,7 @@ public class App {
 				                    "Cadastrar Sub Categoria",
 				                    "Cadastrar Despesas",
 				                    "Calcular Divisão",
-				                    "toal",
+				                    "total",
 				                    "Carregar lista de moradores",
 				                    "Sair"};
 		Object opcaoDefault = opcoesPossiveis[0];
@@ -54,7 +54,7 @@ public class App {
 			break;
 			
 			case "total":
-				JOptionPane.showConfirmDialog(null, rep.getTotalRendaMoradores());
+				
 			break;
 			
 			case "Carregar lista de moradores":
@@ -172,6 +172,7 @@ public class App {
 				                                     null);
 		
 		int indexSubCategoria = pesquisarSubCategoria(nomeSubCategoriaSelecionada,indexCategoria );
+		
 		String ondeEsta = "(" +rep.desp.get(indexCategoria).getNomeCategoria() +"-> " +rep.desp.get(indexCategoria).subs.get(indexSubCategoria).getNomeSubCategoria()+")";
 		String descricaoDespesa = JOptionPane.showInputDialog("Informe a descricao do gasto " +ondeEsta);
 		Double valorDespesa =Double.parseDouble(JOptionPane.showInputDialog("Informe o valor do gasto "+ ondeEsta));
@@ -224,11 +225,12 @@ public class App {
 		Object[] ops = {"Normal",
 		"Proporcional"};
 		int escolhida = JOptionPane.showOptionDialog(null, "Qual tipo de media?", "Opcoes de média", JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE, null, ops,ops[0] );
-		double tot = 0 ;
+		double tot = rep.getTotalDespesas();
 	
-		for(int i = 0; i<rep.getNumCategorias();i++ ) {
-			tot+=rep.desp.get(i).getTotalDespesas();
-		}
+		//for(int i = 0; i<rep.getNumCategorias();i++ ) {
+			//System.out.println(tot +" mais " + rep.desp.get(i).getTotalDespesas());
+			//tot+=rep.desp.get(i).getTotalDespesas();
+		//}
 		
 		if(escolhida == 0){
 		
@@ -247,7 +249,7 @@ public class App {
 				mensagem += (rep.pessoa.get(i).getNome() + " deve pagar " + Valor  + " Reais\n");
 			}
 		}
-		JOptionPane.showMessageDialog(null, tot);
+		JOptionPane.showMessageDialog(null, mensagem);
 		return true;
 	}
 

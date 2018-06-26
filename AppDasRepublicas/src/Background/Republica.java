@@ -20,6 +20,13 @@ public class Republica {
 	public int getNumCategorias() {
 		return desp.size();
 	} 
+	public double getTotalDespesas(){
+		double total=0;
+		for(int i=0;i<desp.size();i++) {
+			total+=desp.get(i).getTotalDespesas();
+		}
+		return total;
+	}
 
 	public static double getTotalRendaMoradores() {
 		return totalRendaMoradores;

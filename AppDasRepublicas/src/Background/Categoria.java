@@ -7,11 +7,10 @@ public class Categoria {
 	private String nomeCategoria;
 	public List<SubCategoria> subs = new ArrayList<SubCategoria>();
 	
-	
 	public double getTotalDespesas() {
 		double totalDespesas = 0;
 		for(int i=0; i<subs.size(); i++ ) {
-			totalDespesas+=subs.get(i).getValor();
+			totalDespesas+=subs.get(i).getValortotal();
 		}
 		return totalDespesas;
 	}
