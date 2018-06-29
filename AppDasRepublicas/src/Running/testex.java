@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
+import javax.tools.Tool;
 
 import Background.Pessoa;
 
@@ -29,11 +30,7 @@ public class testex {
 			}
 			do {
 				String[] campos = line.split(";");
-				
-				try(double renda =Double.parseDouble(campos[2]);)
-				catch(IOException e) {
-					
-				}
+				double renda = Double.parseDouble(campos[2]);
 				Pessoa morador = new Pessoa(campos[0],campos[1],renda);
 				
 				

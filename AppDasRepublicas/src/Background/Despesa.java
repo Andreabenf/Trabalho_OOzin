@@ -1,11 +1,16 @@
 package Background;
 
+import Exceções.DescricaoNaoInformadaException;
 
 public class Despesa {
 	private String descricao;
 	private double valor;
 	
 		public Despesa(String d, double v) {
+			if(d.equals("")) {
+				throw new DescricaoNaoInformadaException("Dado da despesa não foi informado");
+			}
+			
 			this.descricao = d;
 			this.valor = v;
 		}

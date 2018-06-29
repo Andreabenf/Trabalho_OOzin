@@ -129,10 +129,6 @@ public class App {
 			return resposta;
 	}
 
-
-
-
-
 	 static boolean gravarDoTxt() {
 		FileReader arquivo = null;
 		BufferedReader buffer;
