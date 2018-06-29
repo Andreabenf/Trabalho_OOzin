@@ -1,0 +1,27 @@
+package Running;
+
+import javax.swing.JOptionPane;
+
+import Background.Pessoa;
+
+public class testex {
+	 static boolean cadastrarMorador() {
+			
+			
+			String nomeMorador =(String) JOptionPane.showInputDialog(null, "Informe o nome", "Cadastrar nome", JOptionPane.OK_CANCEL_OPTION, null, null, null);
+			String emailMorador = JOptionPane.showInputDialog("Informe o e-mail do morador:");
+			Double rendMorador =Double.parseDouble( JOptionPane.showInputDialog("Informe a renda do morador:"));
+			Pessoa morador = new Pessoa(nomeMorador,emailMorador,rendMorador);
+			
+			
+			return true;
+			
+			
+		
+		}
+	 
+	 public static void main(String[] args) {
+		 cadastrarMorador();
+	}
+		
+}

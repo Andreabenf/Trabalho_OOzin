@@ -1,8 +1,10 @@
 package Running;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import Background.Despesa;
@@ -55,7 +57,7 @@ public class App {
 			break;
 			
 			case "total":
-				rep.getLista();
+				gravarNoArquivo();
 				
 			break;
 			
@@ -69,14 +71,14 @@ public class App {
 			default:
 				break;
 			}
-		} while (!((String)opcaoSelecionada).equals((String)opcoesPossiveis[6]));
+		} while (!((String)opcaoSelecionada).equals((String)opcoesPossiveis[8]));
 	}
 
 	
 	
 
 
-	private static boolean cadastrarSubCategoria() {
+	 static boolean cadastrarSubCategoria() {
 		
 		String[] nomesCategoria = new String[rep.desp.size()];
 		for (int i=0; i<rep.desp.size(); i++) {
@@ -94,11 +96,44 @@ public class App {
 		return rep.addSubCategoria(nomeSubCat, indexCategoria);
 	}
 
+	 public static boolean gravarNoArquivo() {
+			boolean resposta = false;
+			FileWriter arquivo = null;
+			try {
+				arquivo = new FileWriter("moradores.txt");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			BufferedWriter buffer = new BufferedWriter(arquivo);
+			for(int i=0;i<rep.getNumPessoas();i++) {
+				String str = "";
+				str += rep.pessoa.get(i).getNome()+";";
+				str += rep.pessoa.get(i).getEmail()+";";
+				str += rep.pessoa.get(i).getRendimentoMensal() +";";
+				try {
+					buffer.write(str);
+					buffer.newLine();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				
+			}
+			
+			try {
+				buffer.close();
+				resposta = true;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			return resposta;
+	}
 
 
 
 
-	private static boolean gravarDoTxt() {
+
+	 static boolean gravarDoTxt() {
 		FileReader arquivo = null;
 		BufferedReader buffer;
 		boolean resposta; 
@@ -135,13 +170,13 @@ public class App {
 		
 
 
-	private static boolean cadastrarCategoria() {
+	static boolean cadastrarCategoria() {
 		String nomeCat = JOptionPane.showInputDialog("Informe a nova categoria:");
 		rep.addCategoria(nomeCat);
 		return true;
 		
 	}
-	private static void cadastrarDespesas() {
+	 static void cadastrarDespesas() {
 		
 		String[] nomesCategoria = new String[rep.desp.size()];
 		for (int i=0; i<rep.desp.size(); i++) {
@@ -184,7 +219,7 @@ public class App {
 
 
 
-	private static int pesquisarCategoria(String nomedCategoria) {
+	 static int pesquisarCategoria(String nomedCategoria) {
 		int resp = 0;
 		for (int i=0; i<rep.desp.size(); i++) {
 			if( rep.desp.get(i).getNomeCategoria().equals(nomedCategoria)) {
@@ -195,7 +230,7 @@ public class App {
 		return resp;
 	}
 	
-	private static int pesquisarSubCategoria(String nomedaSubCategoria, int indexCat) {
+	 static int pesquisarSubCategoria(String nomedaSubCategoria, int indexCat) {
 		int resp = 0;
 		for (int i=0; i<rep.desp.get(indexCat).getSubSize(); i++) {
 			if( rep.desp.get(indexCat).subs.get(i).getNomeSubCategoria().equals(nomedaSubCategoria)) {
@@ -208,10 +243,10 @@ public class App {
 
 
 
-	private  static boolean cadastrarMorador() {
+	 static boolean cadastrarMorador() {
 	
 		
-		String nomeMorador =(String) JOptionPane.showInputDialog(null, "Select the Port number for server creation", "Server Connection\n", JOptionPane.OK_CANCEL_OPTION, null, null, null);
+		String nomeMorador =(String) JOptionPane.showInputDialog(null, "Informe o nome", "Cadastrar nome", JOptionPane.OK_CANCEL_OPTION, null, null, null);
 		String emailMorador = JOptionPane.showInputDialog("Informe o e-mail do morador:");
 		Double rendMorador =Double.parseDouble( JOptionPane.showInputDialog("Informe a renda do morador:"));
 		Pessoa morador = new Pessoa(nomeMorador,emailMorador,rendMorador);
@@ -222,17 +257,12 @@ public class App {
 	
 	}
 	
-	private static boolean calcularDivisao() {
+	 static boolean calcularDivisao() {
 		String mensagem ="";
 		Object[] ops = {"Normal",
 		"Proporcional"};
 		int escolhida = JOptionPane.showOptionDialog(null, "Qual tipo de media?", "Opcoes de média", JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE, null, ops,ops[0] );
 		double tot = rep.getTotalDespesas();
-	
-		//for(int i = 0; i<rep.getNumCategorias();i++ ) {
-			//System.out.println(tot +" mais " + rep.desp.get(i).getTotalDespesas());
-			//tot+=rep.desp.get(i).getTotalDespesas();
-		//}
 		
 		if(escolhida == 0){
 		

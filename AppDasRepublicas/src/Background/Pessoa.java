@@ -7,6 +7,12 @@ public class Pessoa {
 	private Double RendimentoMensal;
 	
 	public Pessoa(String n, String em, double r) {
+		if(n.equals("")) {
+			System.out.println("top");
+		}
+		if(r ==0) {
+			System.out.println("no moneyy");
+		}
 		this.nome = n;
 		this.email = em;
 		this.RendimentoMensal = r;
