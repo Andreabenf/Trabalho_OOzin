@@ -8,7 +8,7 @@ public class Despesa {
 	
 		public Despesa(String d, double v) {
 			if(d.equals("")) {
-				throw new DescricaoNaoInformadaException("Descição da despesa não foi informado");
+				throw new DescricaoNaoInformadaException("Dado da despesa não foi informado");
 			}
 			
 			this.descricao = d;

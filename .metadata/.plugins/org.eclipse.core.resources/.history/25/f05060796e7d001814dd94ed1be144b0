@@ -100,9 +100,8 @@ public class App {
 	 public static boolean gravarNoArquivo() {
 			boolean resposta = false;
 			FileWriter arquivo = null;
-			String nomeArquivo = "moradores.txt";
 			try {
-				arquivo = new FileWriter(nomeArquivo);
+				arquivo = new FileWriter("moradores.txt");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -127,7 +126,7 @@ public class App {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			JOptionPane.showMessageDialog(null, "Os moradores Cadastrados foram gravados no arquivo " + nomeArquivo + " com SUCESSO!");
+			
 			return resposta;
 	}
 
@@ -248,8 +247,12 @@ public class App {
 		String emailMorador = JOptionPane.showInputDialog("Informe o e-mail do morador:");
 		Double rendMorador =Double.parseDouble( JOptionPane.showInputDialog("Informe a renda do morador:"));
 		Pessoa morador = new Pessoa(nomeMorador,emailMorador,rendMorador);
-		rep.addPessoa(morador);
-	
+		try{rep.addPessoa(morador);}
+		catch(DadosPessoaisIncompletosException e) {
+			e.printStackTrace();
+			nomeMorador = "default";
+			rep.addPessoa(morador);
+		}
 		return true;
 		
 		

@@ -1,8 +1,3 @@
-jojon;asdasd;60;
-Senhor jon;jonjon te amo;60.0;
-jojasdon;asdasd;60;
-Senhor jon;jonjon te amo;60.0;
-jojoasdn;asdasd;60;
-Senhor jon;jonjon te amo;60.0;
-jojoasd345n;asdasd;60;
-Senhor jon;jonjon te amo;60.0;
+ertert;ertert;25.0;
+jklj;lkjlkj;250.0;
+TOp;25;25.0;

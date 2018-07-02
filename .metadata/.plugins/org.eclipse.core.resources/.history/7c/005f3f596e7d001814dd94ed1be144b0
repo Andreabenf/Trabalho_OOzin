@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import Background.Despesa;
 import Background.Pessoa;
 import Background.Republica;
-import Exceções.DadosPessoaisIncompletosException;
 
 public class App {
 	
@@ -100,9 +99,8 @@ public class App {
 	 public static boolean gravarNoArquivo() {
 			boolean resposta = false;
 			FileWriter arquivo = null;
-			String nomeArquivo = "moradores.txt";
 			try {
-				arquivo = new FileWriter(nomeArquivo);
+				arquivo = new FileWriter("moradores.txt");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -127,7 +125,7 @@ public class App {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			JOptionPane.showMessageDialog(null, "Os moradores Cadastrados foram gravados no arquivo " + nomeArquivo + " com SUCESSO!");
+			
 			return resposta;
 	}
 
@@ -249,7 +247,6 @@ public class App {
 		Double rendMorador =Double.parseDouble( JOptionPane.showInputDialog("Informe a renda do morador:"));
 		Pessoa morador = new Pessoa(nomeMorador,emailMorador,rendMorador);
 		rep.addPessoa(morador);
-	
 		return true;
 		
 		

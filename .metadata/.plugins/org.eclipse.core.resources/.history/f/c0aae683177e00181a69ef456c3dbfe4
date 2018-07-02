@@ -127,7 +127,7 @@ public class App {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			JOptionPane.showMessageDialog(null, "Os moradores Cadastrados foram gravados no arquivo " + nomeArquivo + " com SUCESSO!");
+			JOptionPane.showMessageDialog(null, "Moradores do Arquvio \"" + nomeArquivo + "\" Cadastrados com Sucesso!");
 			return resposta;
 	}
 
